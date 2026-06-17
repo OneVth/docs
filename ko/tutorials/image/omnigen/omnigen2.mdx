@@ -1,6 +1,6 @@
 ---
 title: "ComfyUI OmniGen2 네이티브 워크플로우 예시"
-description: "ComfyUI OmniGen2 네이티브 워크플로우 예시 - 통합 텍스트-to-이미지, 이미지 편집 및 다중 이미지 합성 모델"
+description: "ComfyUI OmniGen2 네이티브 워크플로우 예시 - 통합 text-to-image, 이미지 편집 및 다중 이미지 합성 모델"
 sidebarTitle: "OmniGen2"
 translationSourceHash: 6a3fb274
 translationFrom: tutorials/image/omnigen/omnigen2.mdx
@@ -14,7 +14,7 @@ OmniGen2는 약 **7B**의 총 매개변수(텍스트 모델 3B + 이미지 생�
 
 ### 모델 주요 특징
 - **시각적 이해**: Qwen-VL-2.5 기반 모델의 강력한 이미지 내용 해석 및 분석 능력을 계승
-- **텍스트-to-이미지 생성**: 텍스트 프롬프트로부터 고화질이고 미학적으로 뛰어난 이미지를 생성
+- **text-to-image 생성**: 텍스트 프롬프트로부터 고화질이고 미학적으로 뛰어난 이미지를 생성
 - **지시어 기반 이미지 편집**: 복잡한 지시어 기반 이미지 수정을 수행하며 오픈소스 모델 중 최고 수준의 성능을 달성
 - **맥락 기반 생성**: 사람, 참조 객체, 장면 등 다양한 입력을 처리하고 유연하게 조합해 참신하고 일관된 시각적 출력을 생성하는 다재다능한 기능
 
@@ -55,7 +55,7 @@ OmniGen2는 약 **7B**의 총 매개변수(텍스트 모델 3B + 이미지 생�
 │       └── qwen_2.5_vl_fp16.safetensors
 ```
 
-## ComfyUI OmniGen2 텍스트-to-이미지 워크플로우
+## ComfyUI OmniGen2 Text-to-Image 워크플로우
 
 ### 1. 워크플로우 파일 다운로드
 
@@ -63,7 +63,7 @@ OmniGen2는 약 **7B**의 총 매개변수(텍스트 모델 3B + 이미지 생�
     <p className="prose" style={{ margin: 0, fontSize: "0.8rem" }}>Comfy Cloud에서 실행</p>
 </a>
 
-![텍스트-to-이미지 워크플로우](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/image/omnigen2/image_omnigen2_t2i.png)
+![text-to-image 워크플로우](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/image/omnigen2/image_omnigen2_t2i.png)
 
 ### 2. 워크플로우 단계별 완료
 
@@ -78,7 +78,7 @@ OmniGen2는 약 **7B**의 총 매개변수(텍스트 모델 3B + 이미지 생�
 5. **입력 프롬프트**:
     - 첫 번째 `CLipTextEncode` 노드에 긍정적 프롬프트를 입력하세요(이미지에 나타나길 원하는 내용)
     - 두 번째 `CLipTextEncode` 노드에 부정적 프롬프트를 입력하세요(이미지에 나타나지 않길 원하는 내용)
-6. **생성 시작**: `Queue Prompt` 버튼을 클릭하거나, 단축키 `Ctrl(cmd) + Enter`를 사용해 텍스트-to-이미지 생성을 실행하세요.
+6. **생성 시작**: `Queue Prompt` 버튼을 클릭하거나, 단축키 `Ctrl(cmd) + Enter`를 사용해 text-to-image 생성을 실행하세요.
 7. **결과 확인**: 생성이 완료되면 해당 이미지들이 자동으로 `ComfyUI/output/` 디렉터리에 저장되며, `SaveImage` 노드에서 미리보기도 가능합니다.
 
 ## ComfyUI OmniGen2 이미지 편집 워크플로우
@@ -91,7 +91,7 @@ OmniGen2는 풍부한 이미지 편집 기능을 갖추고 있으며, 이미지�
     <p className="prose" style={{ margin: 0, fontSize: "0.8rem" }}>Comfy Cloud에서 실행</p>
 </a>
 
-![텍스트-to-이미지 워크플로우](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/image/omnigen2/image_omnigen2_image_edit.png)
+![text-to-image 워크플로우](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/image/omnigen2/image_omnigen2_image_edit.png)
 
 아래 이미지를 다운로드하세요. 이 이미지를 입력 이미지로 사용하겠습니다.
 ![입력 이미지](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/image/omnigen2/input_fairy.png)
@@ -107,7 +107,7 @@ OmniGen2는 풍부한 이미지 편집 기능을 갖추고 있으며, 이미지�
 5. **입력 프롬프트**:
     - 첫 번째 `CLipTextEncode` 노드에 긍정적 프롬프트를 입력하세요(이미지에 나타나길 원하는 내용)
     - 두 번째 `CLipTextEncode` 노드에 부정적 프롬프트를 입력하세요(이미지에 나타나지 않길 원하는 내용)
-6. **생성 시작**: `Queue Prompt` 버튼을 클릭하거나, 단축키 `Ctrl(cmd) + Enter`를 사용해 텍스트-to-이미지 생성을 실행하세요.
+6. **생성 시작**: `Queue Prompt` 버튼을 클릭하거나, 단축키 `Ctrl(cmd) + Enter`를 사용해 text-to-image 생성을 실행하세요.
 7. **결과 확인**: 생성이 완료되면 해당 이미지들이 자동으로 `ComfyUI/output/` 디렉터리에 저장되며, `SaveImage` 노드에서 미리보기도 가능합니다.
 
 ### 3. 추가 워크플로우 안내

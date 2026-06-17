@@ -68,7 +68,7 @@ comfy generate flux-pro \
 몇 가지 가장 많이 사용되는 파트너 모델들은 한 줄로 호출 가능합니다:
 
 ```bash
-# Nano Banana (Google Gemini Flash Image) — 텍스트-to-이미지 및 프롬프트 기반 편집
+# Nano Banana (Google Gemini Flash Image) — text-to-image 및 프롬프트 기반 편집
 comfy generate nano-banana \
     --prompt "수채화로 그린 잠든 여우" \
     --download fox.png
@@ -85,13 +85,13 @@ comfy generate nano-banana \
     --model gemini-3-pro-image-preview \
     --download city.png
 
-# Seedance (ByteDance) — 텍스트-to-비디오, 최대 1080p / 12초 클립
+# Seedance (ByteDance) — text-to-video, 최대 1080p / 12초 클립
 comfy generate seedance \
     --prompt "꽃 위에 매달린 벌새" \
     --resolution 1080p --duration 5 \
     --download hummingbird.mp4
 
-# Seedance 이미지-to-비디오 — lite/i2v 변형을 선택하고 첫 프레임을 전달하세요
+# Seedance image-to-video — lite/i2v 변형을 선택하고 첫 프레임을 전달하세요
 comfy generate seedance \
     --model seedance-1-0-lite-i2v-250428 \
     --prompt "파도가 치고 부서지는 모습" \

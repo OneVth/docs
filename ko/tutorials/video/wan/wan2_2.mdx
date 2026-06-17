@@ -20,7 +20,7 @@ Wan 2.2는 WAN AI가 출시한 차세대 멀티모달 생성 모델입니다. �
 
 Wan 2.2는 세 가지 핵심 기능을 갖추고 있습니다: 영화 수준의 미적 제어, 전문 영화 산업의 미적 기준을 깊이 통합해 조명, 색감, 구도 등 다차원적 시각적 제어를 지원합니다; 대규모 복합 동작, 다양한 복잡한 동작을 쉽게 복원하고 동작의 부드러움과 제어성을 강화합니다; 정밀한 의미적 준수, 복잡한 장면과 다중 객체 생성에 뛰어나 사용자의 창의적 의도를 더욱 잘 살려냅니다.
 
-이 모델은 텍스트-to-비디오, 이미지-to-비디오 등 여러 생성 모드를 지원하며, 콘텐츠 제작, 예술 창작, 교육 및 훈련 등 다양한 응용 분야에 적합합니다.
+이 모델은 text-to-video, image-to-video 등 여러 생성 모드를 지원하며, 콘텐츠 제작, 예술 창작, 교육 및 훈련 등 다양한 응용 분야에 적합합니다.
 
 [Wan2.2 프롬프트 가이드](https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8aZxe5myC99MelA2WgN7R35y)
 
@@ -37,9 +37,9 @@ Wan2.2 시리즈 모델은 Apache 2.0 오픈소스 라이선스를 기반으로 
 
 | 모델 유형 | 모델 이름 | 파라미터 | 주요 기능 | 모델 저장소 |
 |------------|------------|------------|---------------|-----------------|
-| 하이브리드 모델 | Wan2.2-TI2V-5B | 5B | 텍스트-to-비디오와 이미지-to-비디오를 모두 지원하는 하이브리드 버전, 하나의 모델로 두 가지 핵심 작업 요구사항을 충족 | 🤗 [Wan2.2-TI2V-5B](https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B) |
-| 이미지-to-비디오 | Wan2.2-I2V-A14B | 14B | 정적 이미지를 동영상으로 변환하며, 콘텐츠 일관성과 부드러운 동작 과정을 유지 | 🤗 [Wan2.2-I2V-A14B](https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B) |
-| 텍스트-to-비디오 | Wan2.2-T2V-A14B | 14B | 텍스트 설명으로부터 고품질 비디오를 생성하며, 영화 수준의 미적 제어와 정밀한 의미적 준수를 제공 | 🤗 [Wan2.2-T2V-A14B](https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B) |
+| 하이브리드 모델 | Wan2.2-TI2V-5B | 5B | text-to-video와 image-to-video를 모두 지원하는 하이브리드 버전, 하나의 모델로 두 가지 핵심 작업 요구사항을 충족 | 🤗 [Wan2.2-TI2V-5B](https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B) |
+| image-to-video | Wan2.2-I2V-A14B | 14B | 정적 이미지를 동영상으로 변환하며, 콘텐츠 일관성과 부드러운 동작 과정을 유지 | 🤗 [Wan2.2-I2V-A14B](https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B) |
+| text-to-video | Wan2.2-T2V-A14B | 14B | 텍스트 설명으로부터 고품질 비디오를 생성하며, 영화 수준의 미적 제어와 정밀한 의미적 준수를 제공 | 🤗 [Wan2.2-T2V-A14B](https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B) |
 
 ## ComfyOrg Wan2.2 라이브 스트림
 
@@ -128,12 +128,12 @@ ComfyUI/
 1. `Load Diffusion Model` 노드가 `wan2.2_ti2v_5B_fp16.safetensors` 모델을 로드하도록 설정하세요.
 2. `Load CLIP` 노드가 `umt5_xxl_fp8_e4m3fn_scaled.safetensors` 모델을 로드하도록 설정하세요.
 3. `Load VAE` 노드가 `wan2.2_vae.safetensors` 모델을 로드하도록 설정하세요.
-4. (선택) 이미지-to-비디오 생성이 필요하다면, Ctrl+B 단축키를 사용해 `Load image` 노드를 활성화하여 이미지를 업로드할 수 있습니다.
+4. (선택) image-to-video 생성이 필요하다면, Ctrl+B 단축키를 사용해 `Load image` 노드를 활성화하여 이미지를 업로드할 수 있습니다.
 5. (선택) `Wan22ImageToVideoLatent` 노드에서 크기 설정과 전체 비디오 프레임 수(`length`)를 조정할 수 있습니다.
 6. (선택) 프롬프트(긍정 및 부정)를 수정해야 한다면, 5단계의 `CLIP Text Encoder` 노드에서 직접 수정하세요.
 7. `Run` 버튼을 클릭하거나, 단축키 `Ctrl(cmd) + Enter`를 사용해 비디오 생성을 실행하세요.
 
-## Wan2.2 14B T2V 텍스트-to-비디오 워크플로우 예시
+## Wan2.2 14B T2V Text-to-Video 워크플로우 예시
 
 ### 1. 워크플로우 파일
 
@@ -191,7 +191,7 @@ ComfyUI/
 6. (선택) 프롬프트(긍정 및 부정)를 수정해야 한다면, 5단계의 `CLIP Text Encoder` 노드에서 직접 수정하세요.
 7. `Run` 버튼을 클릭하거나, 단축키 `Ctrl(cmd) + Enter`를 사용해 비디오 생성을 실행하세요.
 
-## Wan2.2 14B I2V 이미지-to-비디오 워크플로우 예시
+## Wan2.2 14B I2V Image-to-Video 워크플로우 예시
 
 ### 1. 워크플로우 파일
 
